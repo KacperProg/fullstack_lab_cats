@@ -7,7 +7,7 @@ const CatContainer = () => {
     const [cat, setCat] = useState(null);
 
     const fetchCat = async () => {
-        const response = await fetch("https://cataas.com/cat/gif", {
+        const response = await fetch(`https://cataas.com/cat`, {
                 method: "GET",
                 headers: {"Content-Type": "application/json"}
           });
@@ -21,6 +21,7 @@ const CatContainer = () => {
         fetchCat();
     }, [])
 
+    
 
     return (
         <>
