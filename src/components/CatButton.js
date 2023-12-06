@@ -1,9 +1,9 @@
 const CatButton = ({onButtonClick}) => {
-    const handleButton = () => {
-        deleteChocolate(chocolate.id) 
-    }
+    // const handleButton = () => {
+    //     deleteChocolate(chocolate.id) 
+    // }
     return (  
-        <button onClick={handleButton}>Get a CAT</button>
+        <button onClick={onButtonClick}>Get a CAT</button>
     );
 }
  

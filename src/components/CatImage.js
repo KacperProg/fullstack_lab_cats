@@ -1,6 +1,7 @@
 const CatImage = ({cat}) => {
+    console.log(cat)
     return ( 
-        <image src={cat.message} alt="A Cat"/>
+        <img src={cat} alt="A Cat"/>
      );
 }
  

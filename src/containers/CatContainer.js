@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import CatButton from "../components/CatButton";
-import Cat from "../components/Cat";
+import CatImage from "../components/CatImage";
 
 const CatContainer = () => {
     
-    const [cat, setCat] = useState([]);
+    const [cat, setCat] = useState(null);
 
-    const fetchCat = async (name) => {
-        const response = await fetch(`https://cataas.com/cat/${name}`);
-        const catData = response.json();
-        setCat(catData);
+    const fetchCat = async () => {
+        const response = await fetch("https://cataas.com/cat/gif", {
+                method: "GET",
+                headers: {"Content-Type": "application/json"}
+          });
+        console.log(response)
+        const catData = await response.blob();
+        console.log(URL.createObjectURL(catData));
+        setCat(URL.createObjectURL(catData));
     }
 
     useEffect(() => {
@@ -20,8 +25,9 @@ const CatContainer = () => {
     return (
         <>
             <h2>This is the Cat Container</h2>
-            <CatButton onButtonClick = {fetchCat("gif")}/>
-            <Cat cat = {cat}/>
+            {cat ? <CatImage cat = {cat}/> : <p>Loading cat...</p>}
+            <CatButton onButtonClick = {fetchCat}/>
+            {/* <Cat cat = {cat}/> */}
         </>
     );
 }
