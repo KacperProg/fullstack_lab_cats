@@ -6,10 +6,10 @@ import CatForm from "../components/CatForm";
 const CatContainer = () => {
     
     const [cat, setCat] = useState(null);
-    const[catType,setCatType] = useState("/cat")
-    const[catMessage, setCatMessage] = useState(null)
-    const[catTag, setCatTag] = useState(null)
-
+    const[catType,setCatType] = useState("/cat");
+    const[catMessage, setCatMessage] = useState(null);
+    const[catTag, setCatTag] = useState(null);
+    const[showForm, setShowForm] = useState(false);
 
     const fetchCat = async () => {
         const response = await fetch(`https://cataas.com${catType}`, {
@@ -23,16 +23,14 @@ const CatContainer = () => {
 
     const handleCatTypeChange = (event) => {
         setCatType(event.target.value);
+        setShowForm(event.target.value.includes("/cat/says"));
     }; 
 
     const handleFormChange = (message) => {
         console.log(message);
         setCatMessage(message);
         //console.log(catMessage);
-        if (catMessage!==message){
-            setCatMessage(message);
-            setCatType(`/cat/says/${message}`)
-        }
+        setCatType(`/cat/says/${message}`)
     };
 
     useEffect(() => {
@@ -50,7 +48,7 @@ const CatContainer = () => {
                     <option value="/cat/gif">Cat Gif</option>
                     <option value="/cat/says">Cat Text</option>
                 </select>
-                <CatForm handleFormChange = {handleFormChange}/>
+                {showForm && <CatForm handleFormChange = {handleFormChange}/>}
                 <CatButton onButtonClick = {fetchCat}/>
             </nav>
             {cat ? <CatImage cat = {cat}/> : <p>Loading cat...</p>}

@@ -9,7 +9,7 @@ const CatForm = ({handleFormChange}) => {
         //console.log(message);
         handleFormChange(message);
         console.log(message);
-        setMessage("");
+        // setMessage("");
     }
 
     const handleChange = (event) => {
