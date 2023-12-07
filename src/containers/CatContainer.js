@@ -17,7 +17,7 @@ const CatContainer = () => {
                 headers: {"Content-Type": "application/json"}
           });
         const catData = await response.blob();
-        console.log(URL.createObjectURL(catData));
+        //console.log(URL.createObjectURL(catData));
         setCat(URL.createObjectURL(catData));
     }
 
@@ -25,16 +25,19 @@ const CatContainer = () => {
         setCatType(event.target.value);
     }; 
 
-    const handleFormChange = (event) => {
-        setCatMessage(event.target.value);
-        if (catType=="/cat/says"){
-                setCatType(`/cat/says/${event.target.value}`)
+    const handleFormChange = (message) => {
+        console.log(message);
+        setCatMessage(message);
+        //console.log(catMessage);
+        if (catMessage!==message){
+            setCatMessage(message);
+            setCatType(`/cat/says/${message}`)
         }
     };
 
     useEffect(() => {
         fetchCat();
-    }, [catType, catMessage, catTag])
+    }, [catMessage, catTag])
 
 
     return (
