@@ -7,6 +7,7 @@ body {
   height: 100vh; 
   margin: 0; 
   background-color: rgb(148, 210, 218);
+  background-image: url(https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fwww.everwallpaper.co.uk%2Fcdn%2Fshop%2Fproducts%2Fcartoon-cat-wall-mural-plain.jpg%3Fv%3D1640095561);
 }
 
 .container {
@@ -29,6 +30,17 @@ body {
   object-fit: contain; 
 }
 
-.Everything-box{
+/* .section-above, */
+/* .section-below {
   background-color: rgb(255, 127, 212);
+  width: fit-content;
+  height: 100px;
+} */
+
+.Everything-box{
+  display: grid;
+  line-height: 1em;
+  justify-content: center;
+  font-family: 'Chic Cat', sans-serif;
+  background-color: rgb(127, 255, 165);
 }
