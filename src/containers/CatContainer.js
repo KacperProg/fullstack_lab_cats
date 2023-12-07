@@ -39,23 +39,22 @@ const CatContainer = () => {
 
 
     return (
-        <>
+        <div className="Everything-box">
             <h2>This is the Cat Container</h2>
-            <nav>
-                 <select value={catType} onChange={handleCatTypeChange}>
-                    <option>Select a cat type</option>
-                    <option value="/cat">Cat image</option>
-                    <option value="/cat/gif">Cat Gif</option>
-                    <option value="/cat/says">Cat Text</option>
-                </select>
-                {showForm && <CatForm handleFormChange = {handleFormChange}/>}
-                <CatButton onButtonClick = {fetchCat}/>
-            </nav>
-            {cat ? <CatImage cat = {cat}/> : <p>Loading cat...</p>}
             
+                <nav>
+                    <select value={catType} onChange={handleCatTypeChange}>
+                        <option>Select a cat type</option>
+                        <option value="/cat">Cat image</option>
+                        <option value="/cat/gif">Cat Gif</option>
+                        <option value="/cat/says">Cat Text</option>
+                    </select>
+                    {showForm && <CatForm handleFormChange = {handleFormChange}/>}
+                    <CatButton onButtonClick = {fetchCat}/>
+                </nav>
             
-            
-        </>
+            {cat ? <CatImage cat = {cat}/> : <p>Loading cat...</p>}    
+        </div>
     );
 }
  

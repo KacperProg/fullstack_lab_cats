@@ -1,7 +1,10 @@
+import '../index.css'
 const CatImage = ({cat}) => {
 
     return ( 
-        <img src={cat} alt="A Cat"/>
+        <div className="image-box">
+            <img src={cat} alt="A Cat"/>
+        </div>
      );
 }
  

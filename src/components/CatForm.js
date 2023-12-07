@@ -6,17 +6,12 @@ const CatForm = ({handleFormChange}) => {
 
     const handleFormSubmit = (event) => {   
         event.preventDefault();
-        //console.log(message);
         handleFormChange(message);
         console.log(message);
-        // setMessage("");
     }
 
     const handleChange = (event) => {
-        //let propertyName = event.target.name;
-        //let copiedMessage = {...message};
         let copiedMessage = event.target.value;
-        //console.log(copiedMessage);
         setMessage(copiedMessage);
     }  
 
